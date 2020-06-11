@@ -1,5 +1,44 @@
 import React, { Component } from "react";
-import { AppBar, Toolbar, TextField, Typography, Button } from '@material-ui/core'
+import { AppBar, Toolbar, TextField, Typography, Button, Grid, Paper } from '@material-ui/core'
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  button: {
+    display: 'block',
+    backgroundColor: 'white'
+  },
+  each1: {
+    width: '55%',
+    height: '50px',
+    fontSize: '25px',
+    backgroundColor: '#00ffff',
+    color: ' #1a0000'
+  },
+  each: {
+    width: '50%',
+    height: '50px',
+    fontSize: '30px',
+    backgroundColor: '#00ffff',
+    color: ' #1a0000'
+  },
+  title: {
+    flexGrow: 1,
+    textAlign: 'center',
+    fontSize: "25px"
+  },
+  textbox: {
+    height: '60px',
+    backgroundColor: 'white',
+    width: '100%',
+    fontSize: '25px',
+    textAlign: 'center',
+    borderWidth: '3px',
+    borderColor: 'red'
+  }
+});
 
 class Counter extends Component {
   state = {
@@ -24,40 +63,69 @@ class Counter extends Component {
       text1: value
     })
   }
+
+  erase = () => {
+    this.setState({
+      text1: 0
+    })
+  }
+
   render() {
     console.log(this.state.text1)
-    return (
-      <div>
-        <AppBar position="static" align="center" color="secondary">
-          <Toolbar>
+    const { classes } = this.props;
 
-            <Typography variant="h6" >
+    return (
+      <div md={4} xs={4}>
+        <AppBar position="static" color="secondary" style={{ textAlign: "center" }}>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
               Counter Application
-         </Typography>
+            </Typography>
           </Toolbar>
         </AppBar>
+        <div style={{ padding: "130px 5%", margin: "0 auto", maxWidth: "500px", borderRadius: "2%" }}>
+          <Paper elevation={10} md={12} xs={12} style={{ padding: "5%" }}>
+            <div style={{ marginLeft: "3%", marginRight: "3%", marginTop: "3%", marginBottom: "3%" }} md={4} xs={4}>
 
-        <div style={{ marginLeft: "40%", marginTop: "8%" }}>
-          <TextField id="text1" label="Input Value" variant="outlined"
-            onChange={(e) => this.sets(e)}
+              <Grid container spacing={3}>
+                <Grid item md={12} xs={12}>
+                  <TextField id="text1" label="Input Value" variant="outlined"
+                    fullWidth style={{ textAlign: "center" }}
+                    onChange={(e) => this.sets(e)}
+                    value={this.state.text1} />
+                </Grid>
+              </Grid>
 
-            value={this.state.text1} />
-          <br />
-          <br />
-          <Button variant="contained" onClick={() => this.inc()}
-            color="secondary">
-            Increment
-          </Button>
-          <br />
-          <br />
-          <Button variant="contained" onClick={() => this.dec()}
-            color="secondary">
-            Decrement
-           </Button>
+              <Grid container spacing={3}>
+                {/* <Grid item md={3} xs={3}></Grid> */}
+                <Grid item md={5} xs={5}>
+                  <Button variant="contained" onClick={() => this.inc()} fullWidth
+                    color="secondary">
+                    Increment
+                   </Button>
+                </Grid>
+                <Grid item md={2} xs={2}></Grid>
+                <Grid item md={5} xs={5}>
+                  <Button variant="contained" onClick={() => this.dec()} fullWidth
+                    color="secondary">
+                    Decrement
+                  </Button>
+                </Grid>
+              </Grid>
 
+              <Grid container spacing={3}>
+                <Grid item md={12} xs={12}>
+                  <Button variant="contained" onClick={() => this.erase()} fullWidth
+                    color="secondary">
+                    Reset
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </Paper>
         </div>
       </div>
     )
   }
 }
-export default Counter;
+export default withStyles(styles)(Counter);
