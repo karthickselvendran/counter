@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3em;
+  width: 100%;
+}
+
+.container p {
+  font-size: 1.3em;
+  max-width: 600px;
+  text-align: center;
+  margin: 20px;
+}
+
+.count {
+  font-size: 2em;
+  font-weight: 800;
+  margin-top: 0.5em;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.bgColorPositive {
+  background: rgb(128, 200, 21);
+}
+
+.bgColorNegative {
+  background: red;
+}
+
+.bgColorNeutral {
+  background: rgb(69, 65, 65);
+}

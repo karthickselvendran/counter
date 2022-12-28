@@ -1,0 +1,11 @@
+.header {
+  color: white;
+  background-color: rgb(27, 186, 178);
+  height: 55px;
+  font-size: 1.5em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
