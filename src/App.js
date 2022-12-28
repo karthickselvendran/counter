@@ -13,7 +13,7 @@ function App() {
       <Header title="Counter Application" />
       <div className="container">
         <p>
-          Welcome to our platform.  In this website we have a feature for incrementing, decrementing and resetting the number.
+          Welcome to our platform.  This website has a feature for incrementing, decrementing and resetting numbers.
         </p>
         <span className="count">{count}</span>
         <div className="buttonGroup">
